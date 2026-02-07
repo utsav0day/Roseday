@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 Rose Day - For My Dearest Ayushi Jaan 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd4e9 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts and roses background */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: float 15s infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header with special message */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .rose-icon {
+            font-size: 90px;
+            animation: pulse 2s infinite;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(255,20,147,0.5));
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+            margin: 20px 0;
+            text-shadow: 0 0 30px rgba(255,20,147,0.3);
+        }
+
+        @keyframes gradient {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .for-ayushi {
+            font-size: 2.5rem;
+            color: #c71585;
+            font-style: italic;
+            margin: 20px 0;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(255,182,193,0.5);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #d63384;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .date-display {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255,20,147,0.2);
+            color: #d63384;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Special Love Message Box */
+        .love-message-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,240,248,0.95));
+            border-radius: 30px;
+            padding: 50px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(255,20,147,0.25);
+            border: 3px solid rgba(255,182,193,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-message-box::before {
+            content: '💕';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+        }
+
+        .love-message-box h2 {
+            color: #ff1493;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .love-message-box p {
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 2;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Interactive Rose Garden */
+        .rose-garden {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .rose-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(255,20,147,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rose-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,182,193,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .rose-card:hover::before {
+            left: 100%;
+        }
+
+        .rose-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(255,20,147,0.3);
+        }
+
+        .rose-emoji {
+            font-size: 70px;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rose-card h3 {
+            color: #d63384;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .rose-card p {
+            color: #666;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Secret Message Button - SURPRISE 1 */
+        .surprise-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .secret-btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255,20,147,0.4);
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+        }
+
+        .secret-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,20,147,0.6);
+        }
+
+        .secret-message {
+            display: none;
+            background: linear-gradient(135deg, #fff, #fff5f8);
+            padding: 40px;
+            border-radius: 25px;
+            margin-top: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 15px 50px rgba(255,20,147,0.2);
+            animation: fadeInUp 0.8s;
+        }
+
+        .secret-message.active {
+            display: block;
+        }
+
+        .secret-message h3 {
+            color: #ff1493;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .secret-message p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            font-style: italic;
+        }
+
+
+
+        /* Reasons I Love You - SURPRISE 3 */
+        .reasons-section {
+            margin: 80px 0;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(255,182,193,0.2), rgba(255,192,203,0.2));
+            border-radius: 30px;
+        }
+
+        .reasons-section h2 {
+            text-align: center;
+            color: #ff1493;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(255,20,147,0.15);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255,20,147,0.3);
+            background: linear-gradient(135deg, #fff, #fff5f8);
+        }
+
+        .reason-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .reason-text {
+            color: #d63384;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* Love Calculator - SURPRISE 4 */
+        .love-calculator {
+            margin: 80px auto;
+            max-width: 600px;
+            padding: 50px;
+            background: linear-gradient(135deg, #fff, #ffe5f1);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255,20,147,0.25);
+            text-align: center;
+        }
+
+        .love-calculator h2 {
+            color: #ff1493;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .love-meter {
+            width: 100%;
+            height: 40px;
+            background: #ffe5f1;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .love-meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff1493, #ff69b4);
+            width: 0%;
+            transition: width 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255,20,147,0.4);
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,20,147,0.6);
+        }
+
+        /* Virtual Rose Gift - SURPRISE 5 */
+        .rose-gift-section {
+            margin: 80px 0;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,240,248,0.95));
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255,20,147,0.2);
+        }
+
+        .rose-gift-section h2 {
+            color: #ff1493;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        .rose-bouquet {
+            font-size: 120px;
+            margin: 30px 0;
+            animation: bouquetFloat 3s ease-in-out infinite;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        @keyframes bouquetFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .gift-message {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255,20,147,0.15);
+            animation: fadeInUp 0.8s;
+        }
+
+        .gift-message.active {
+            display: block;
+        }
+
+        .gift-message p {
+            color: #d63384;
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* Footer with Love */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+        }
+
+        .footer-hearts {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: #d63384;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            color: #ff1493;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sparkles Effect */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleAnim 1s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Music Note Animation */
+        .music-note {
+            position: fixed;
+            font-size: 30px;
+            pointer-events: none;
+            animation: musicFloat 3s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes musicFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .for-ayushi {
+                font-size: 1.8rem;
+            }
+            .love-message-box {
+                padding: 30px;
+            }
+            .memory-lane, .reasons-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="rose-icon">🌹</div>
+        <h1>Happy Rose Day</h1>
+        <div class="for-ayushi">For My Dearest Ayushi Jaan 💕</div>
+        <p class="tagline">"Every rose I see reminds me of you..."</p>
+        <div class="date-display">
+            <span id="currentDate"></span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Special Love Message -->
+        <div class="love-message-box">
+            <h2>To The Most Beautiful Rose In My Garden 🌹</h2>
+            <p>
+                Ayushi Jaan, just like a rose is the queen of flowers, you are the queen of my heart. 
+                Your smile brightens my day more than a thousand roses ever could. 
+                This Rose Day, I want you to know that you mean everything to me. 
+                Every moment with you is like holding the most precious rose - delicate, beautiful, and worth cherishing forever. ❤️
+            </p>
+        </div>
+
+        <!-- Rose Garden -->
+        <div class="rose-garden">
+            <div class="rose-card">
+                <div class="rose-emoji">🌹</div>
+                <h3>Red Rose</h3>
+                <p>For my endless love and passion for you, Ayushi Jaan</p>
+            </div>
+            <div class="rose-card">
+                <div class="rose-emoji">🌺</div>
+                <h3>Pink Rose</h3>
+                <p>For your grace, sweetness, and the joy you bring into my life</p>
+            </div>
+            <div class="rose-card">
+                <div class="rose-emoji">🌸</div>
+                <h3>White Rose</h3>
+                <p>For the purity and sincerity of our beautiful bond</p>
+            </div>
+            <div class="rose-card">
+                <div class="rose-emoji">🌼</div>
+                <h3>Yellow Rose</h3>
+                <p>For our amazing friendship and the happiness you give me</p>
+            </div>
+        </div>
+
+        <!-- SURPRISE 1: Secret Message -->
+        <div class="surprise-section">
+            <button class="secret-btn" onclick="revealSecret()">
+                ✨ Click for a Secret Message ✨
+            </button>
+            <div class="secret-message" id="secretMessage">
+                <h3>💌 My Secret Love Note 💌</h3>
+                <p>
+                    Ayushi Jaan, do you know what makes you so special? It's not just your beauty 
+                    (though you're absolutely gorgeous! 😍), it's the way you make me feel alive. 
+                    Your laugh is my favorite sound, your smile is my favorite sight, and being with 
+                    you is my favorite place. I fall in love with you more every single day. 
+                    You're not just my girlfriend, you're my best friend, my happiness, my everything! 
+                    I promise to always cherish you like the precious rose you are. 🌹💕
+                </p>
+            </div>
+        </div>
+
+
+        <!-- SURPRISE 3: Reasons I Love You -->
+        <div class="reasons-section">
+            <h2>100 Reasons Why I Love Ayushi Jaan 💖</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">😍</div>
+                    <div class="reason-text">Your Beautiful Smile</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💫</div>
+                    <div class="reason-text">Your Sparkling Eyes</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🎵</div>
+                    <div class="reason-text">Your Sweet Voice</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">❤️</div>
+                    <div class="reason-text">Your Caring Heart</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">✨</div>
+                    <div class="reason-text">Your Inner Beauty</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌈</div>
+                    <div class="reason-text">You Make Life Colorful</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌟</div>
+                    <div class="reason-text">You're My Star</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💝</div>
+                    <div class="reason-text">You Complete Me</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🦋</div>
+                    <div class="reason-text">You Give Me Butterflies</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌹</div>
+                    <div class="reason-text">You're Simply Perfect</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">☀️</div>
+                    <div class="reason-text">You're My Sunshine</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">💖</div>
+                    <div class="reason-text">And 89 More Reasons...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SURPRISE 4: Love Calculator -->
+        <div class="love-calculator">
+            <h2>Our Love Meter 💕</h2>
+            <p style="color: #d63384; font-size: 1.1rem; margin: 20px 0;">
+                Let's calculate our love compatibility!
+            </p>
+            <div class="love-meter">
+                <div class="love-meter-fill" id="loveMeter"></div>
+            </div>
+            <button class="calculate-btn" onclick="calculateLove()">Calculate Our Love 💖</button>
+            <p id="loveResult" style="margin-top: 20px; font-size: 1.2rem; color: #ff1493; font-weight: bold;"></p>
+        </div>
+
+        <!-- SURPRISE 5: Virtual Rose Gift -->
+        <div class="rose-gift-section">
+            <h2>A Special Gift For You 🎁</h2>
+            <p style="color: #d63384; font-size: 1.2rem; margin: 20px 0;">
+                Click on the bouquet to receive your virtual roses!
+            </p>
+            <div class="rose-bouquet" onclick="giftRoses()">💐</div>
+            <div class="gift-message" id="giftMessage">
+                <p>
+                    🌹🌹🌹🌹🌹🌹🌹🌹🌹🌹<br><br>
+                    I'm sending you a bouquet of infinite roses, Ayushi Jaan! 
+                    Each rose represents a wish for your happiness, a promise of my love, 
+                    and a moment I cherish with you. You deserve all the roses in the world! 
+                    Happy Rose Day, my love! 💕
+                    <br><br>
+                    🌹🌹🌹🌹🌹🌹🌹🌹🌹🌹
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-hearts">💕 💖 💝 💗 💓</div>
+        <p>Forever and Always, With All My Love</p>
+        <p class="signature">Your Love 💕</p>
+        <p style="font-size: 0.9rem; margin-top: 30px; color: #999;">
+            Made with 💖 for the most amazing person in the world
+        </p>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '🌹', '💐'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Display current date
+        function displayDate() {
+            const dateElement = document.getElementById('currentDate');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            dateElement.textContent = today + ' 🌹 Rose Day Special';
+        }
+
+        // SURPRISE 1: Reveal Secret Message
+        function revealSecret() {
+            const secretMsg = document.getElementById('secretMessage');
+            secretMsg.classList.add('active');
+            createSparkles(event);
+        }
+
+
+        // SURPRISE 4: Calculate Love
+        let loveCalculated = false;
+        function calculateLove() {
+            if (loveCalculated) return;
+            
+            const meter = document.getElementById('loveMeter');
+            const result = document.getElementById('loveResult');
+            
+            // Animate to 100%
+            setTimeout(() => {
+                meter.style.width = '100%';
+                meter.textContent = '100%';
+            }, 100);
+            
+            setTimeout(() => {
+                result.innerHTML = '💯 PERFECT MATCH! 💯<br>Our love is beyond measure, Ayushi Jaan! ❤️';
+                loveCalculated = true;
+                createHeartExplosion(event);
+            }, 2500);
+        }
+
+        // SURPRISE 5: Gift Roses
+        let roseGifted = false;
+        function giftRoses() {
+            if (roseGifted) return;
+            
+            const giftMsg = document.getElementById('giftMessage');
+            giftMsg.classList.add('active');
+            roseGifted = true;
+            
+            // Create rose explosion
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createFloatingRose();
+                }, i * 100);
+            }
+        }
+
+        // Create sparkles effect
+        function createSparkles(event) {
+            const sparkles = ['✨', '⭐', '💫', '🌟'];
+            for (let i = 0; i < 10; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.style.left = (event.clientX + Math.random() * 100 - 50) + 'px';
+                sparkle.style.top = (event.clientY + Math.random() * 100 - 50) + 'px';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+
+        // Create heart explosion
+        function createHeartExplosion(event) {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝'];
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'sparkle';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = (event.clientX + Math.random() * 200 - 100) + 'px';
+                heart.style.top = (event.clientY + Math.random() * 200 - 100) + 'px';
+                heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1000);
+            }
+        }
+
+        // Create floating rose
+        function createFloatingRose() {
+            const rose = document.createElement('div');
+            rose.className = 'music-note';
+            rose.textContent = '🌹';
+            rose.style.left = Math.random() * window.innerWidth + 'px';
+            rose.style.top = window.innerHeight + 'px';
+            rose.style.fontSize = (30 + Math.random() * 30) + 'px';
+            document.body.appendChild(rose);
+            
+            setTimeout(() => rose.remove(), 3000);
+        }
+
+        // Add click effect to rose cards
+        document.querySelectorAll('.rose-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                createSparkles(e);
+            });
+        });
+
+        // Add click effect to reason cards
+        document.querySelectorAll('.reason-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                createHeartExplosion(e);
+            });
+        });
+
+        // Mouse trail effect
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.95) {
+                const trail = document.createElement('div');
+                trail.className = 'sparkle';
+                trail.textContent = '💕';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                trail.style.fontSize = '15px';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => trail.remove(), 1000);
+            }
+        });
+
+        // Initialize
+        window.onload = function() {
+            createHearts();
+            displayDate();
+        };
+    </script>
+</body>
+</html>
